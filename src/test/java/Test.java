@@ -63,8 +63,4 @@ public class Test {
             getWebDriver().switchTo().window(tabs.get(tabs.size()-1));
         }
     }
-    @After
-    public void tearDown() {
-
-    }
 }
