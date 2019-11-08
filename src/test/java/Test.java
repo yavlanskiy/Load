@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.After;
 import org.junit.BeforeClass;
@@ -52,6 +53,9 @@ public class Test {
             $(By.id("i2:19:i3:3:cl10")).click();
 
             Thread.sleep(SlEEP);
+
+            // Assert table load
+            $(By.className("af_table")).shouldBe(Condition.visible);
 
             // Next Tab
             ((JavascriptExecutor) getWebDriver()).executeScript("window.open()");
