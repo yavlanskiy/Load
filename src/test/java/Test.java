@@ -15,7 +15,7 @@ public class Test {
     private static final String URL = "https://hpux.intranet:9445/JetB2_QA_3430X";
     private static final int SlEEP = 5000;
 
-    private int COUNT_WINDOWS = 50;
+    private int COUNT_WINDOWS = 100;
     private ArrayList<String> tabs;
 
 
@@ -31,6 +31,7 @@ public class Test {
         for (int i = 1; i <= COUNT_WINDOWS; i++) {
             // Login
             open(URL);
+            System.out.println("Windows #"+ i);
 
             if (i == 1) {
                 $(By.name("j_username")).setValue("creator");
@@ -55,7 +56,7 @@ public class Test {
             // Next Tab
             ((JavascriptExecutor) getWebDriver()).executeScript("window.open()");
             tabs = new ArrayList<String>(getWebDriver().getWindowHandles());
-            getWebDriver().switchTo().window(tabs.get(i));
+            getWebDriver().switchTo().window(tabs.get(tabs.size()-1));
         }
     }
     @After
